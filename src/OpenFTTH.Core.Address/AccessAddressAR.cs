@@ -1,4 +1,4 @@
-using FluentResults;
+using OpenFTTH.Results;
 using OpenFTTH.Core.Address.Events;
 using OpenFTTH.EventSourcing;
 
@@ -180,7 +180,7 @@ public class AccessAddressAR : AggregateBase
         }
 
         var updateExternalIdResult = UpdateExternalId(externalId, externalUpdatedDate);
-        if (updateExternalIdResult.Errors.Any())
+        if (updateExternalIdResult.Errors.Count > 0)
         {
             var error = (AccessAddressError)updateExternalIdResult.Errors.First();
             if (error.Code != AccessAddressErrorCode.NO_CHANGES)
@@ -190,7 +190,7 @@ public class AccessAddressAR : AggregateBase
         }
 
         var updateMunicipalCodeResult = UpdateMunicipalCode(municipalCode, externalUpdatedDate);
-        if (updateMunicipalCodeResult.Errors.Any())
+        if (updateMunicipalCodeResult.Errors.Count > 0)
         {
             var error = (AccessAddressError)updateMunicipalCodeResult.Errors.First();
             if (error.Code != AccessAddressErrorCode.NO_CHANGES)
@@ -200,7 +200,7 @@ public class AccessAddressAR : AggregateBase
         }
 
         var updateStatusResult = UpdateStatus(status, externalUpdatedDate);
-        if (updateStatusResult.Errors.Any())
+        if (updateStatusResult.Errors.Count > 0)
         {
             var error = (AccessAddressError)updateStatusResult.Errors.First();
             if (error.Code != AccessAddressErrorCode.NO_CHANGES)
@@ -210,7 +210,7 @@ public class AccessAddressAR : AggregateBase
         }
 
         var updateRoadCodeResult = UpdateRoadCode(roadCode, externalUpdatedDate);
-        if (updateRoadCodeResult.Errors.Any())
+        if (updateRoadCodeResult.Errors.Count > 0)
         {
             var error = (AccessAddressError)updateRoadCodeResult.Errors.First();
             if (error.Code != AccessAddressErrorCode.NO_CHANGES)
@@ -220,7 +220,7 @@ public class AccessAddressAR : AggregateBase
         }
 
         var updateHouseNumberResult = UpdateHouseNumber(houseNumber, externalUpdatedDate);
-        if (updateHouseNumberResult.Errors.Any())
+        if (updateHouseNumberResult.Errors.Count > 0)
         {
             var error = (AccessAddressError)updateHouseNumberResult.Errors.First();
             if (error.Code != AccessAddressErrorCode.NO_CHANGES)
@@ -230,7 +230,7 @@ public class AccessAddressAR : AggregateBase
         }
 
         var updatePostCodeIdResult = UpdatePostCodeId(postCodeId, externalUpdatedDate);
-        if (updatePostCodeIdResult.Errors.Any())
+        if (updatePostCodeIdResult.Errors.Count > 0)
         {
             var error = (AccessAddressError)updatePostCodeIdResult.Errors.First();
             if (error.Code != AccessAddressErrorCode.NO_CHANGES)
@@ -240,7 +240,7 @@ public class AccessAddressAR : AggregateBase
         }
 
         var updateSupplementaryTownNameResult = UpdateSupplementaryTownName(supplementaryTownName, externalUpdatedDate);
-        if (updateSupplementaryTownNameResult.Errors.Any())
+        if (updateSupplementaryTownNameResult.Errors.Count > 0)
         {
             var error = (AccessAddressError)updateSupplementaryTownNameResult.Errors.First();
             if (error.Code != AccessAddressErrorCode.NO_CHANGES)
@@ -250,7 +250,7 @@ public class AccessAddressAR : AggregateBase
         }
 
         var updatePlotIdResult = UpdatePlotId(plotId, externalUpdatedDate);
-        if (updatePlotIdResult.Errors.Any())
+        if (updatePlotIdResult.Errors.Count > 0)
         {
             var error = (AccessAddressError)updatePlotIdResult.Errors.First();
             if (error.Code != AccessAddressErrorCode.NO_CHANGES)
@@ -260,7 +260,7 @@ public class AccessAddressAR : AggregateBase
         }
 
         var updateRoadIdResult = UpdateRoadId(roadId, externalUpdatedDate);
-        if (updateRoadIdResult.Errors.Any())
+        if (updateRoadIdResult.Errors.Count > 0)
         {
             var error = (AccessAddressError)updateRoadIdResult.Errors.First();
             if (error.Code != AccessAddressErrorCode.NO_CHANGES)
@@ -270,7 +270,7 @@ public class AccessAddressAR : AggregateBase
         }
 
         var updatePendingOfficialResult = UpdatePendingOfficial(pendingOfficial, externalUpdatedDate);
-        if (updatePendingOfficialResult.Errors.Any())
+        if (updatePendingOfficialResult.Errors.Count > 0)
         {
             var error = (AccessAddressError)updatePendingOfficialResult.Errors.First();
             if (error.Code != AccessAddressErrorCode.NO_CHANGES)
@@ -280,7 +280,7 @@ public class AccessAddressAR : AggregateBase
         }
 
         var updateCoordinateResult = UpdateCoordinate(eastCoordinate, northCoordinate, externalUpdatedDate);
-        if (updateCoordinateResult.Errors.Any())
+        if (updateCoordinateResult.Errors.Count > 0)
         {
             var error = (AccessAddressError)updateCoordinateResult.Errors.First();
             if (error.Code != AccessAddressErrorCode.NO_CHANGES)

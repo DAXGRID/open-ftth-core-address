@@ -34,6 +34,7 @@ public class PostCodeTests
     public PostCodeTests(IEventStore eventStore)
     {
         _eventStore = eventStore;
+        _eventStore.ScanForProjections();
     }
 
     public static IEnumerable<object[]> ExamplePostCodeValues()
@@ -63,10 +64,7 @@ public class PostCodeTests
     [MemberData(nameof(ExamplePostCodeValues))]
     public void Create_is_success(CreatePostCodeExampleData postCodeExampleData)
     {
-        if (postCodeExampleData is null)
-        {
-            throw new ArgumentNullException(nameof(postCodeExampleData));
-        }
+        ArgumentNullException.ThrowIfNull(postCodeExampleData);
 
         var postCodeAR = new PostCodeAR();
 

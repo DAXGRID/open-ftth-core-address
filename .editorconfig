@@ -1,3 +1,8 @@
 [*.cs]
-# CA1707: Identifiers should not contain underscores
+# CA1707: Identifiers should not contain underscores.
 dotnet_diagnostic.CA1707.severity = none
+
+[*Test*.cs]
+# CA1515: Because an application's API isn't typically referenced from outside the assembly, types can be made internal.
+# We do not want to make test classes internal, because then they cannot be found by the test runner.
+dotnet_diagnostic.CA1515.severity = none

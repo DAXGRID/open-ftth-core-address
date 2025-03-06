@@ -83,10 +83,7 @@ public class UnitAddressTests
     [MemberData(nameof(ExampleCreateValues))]
     public void Create_is_success(CreateUnitAddressExampleData unitAddressExampleData)
     {
-        if (unitAddressExampleData is null)
-        {
-            throw new ArgumentNullException(nameof(unitAddressExampleData));
-        }
+        ArgumentNullException.ThrowIfNull(unitAddressExampleData);
 
         var addressProjection = _eventStore.Projections.Get<AddressProjection>();
 

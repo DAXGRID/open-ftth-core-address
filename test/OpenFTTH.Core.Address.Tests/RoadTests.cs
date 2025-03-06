@@ -68,10 +68,7 @@ public class RoadTests
     [MemberData(nameof(ExampleCreateValues))]
     public void Create_is_success(CreateRoadAddressExampleData roadExampleData)
     {
-        if (roadExampleData is null)
-        {
-            throw new ArgumentNullException(nameof(roadExampleData));
-        }
+        ArgumentNullException.ThrowIfNull(roadExampleData);
 
         var roadAR = new RoadAR();
         var createRoadResult = roadAR.Create(

@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace OpenFTTH.Core.Address.Tests;
 
-public static class Startup
+internal static class Startup
 {
     public static void ConfigureServices(IServiceCollection services)
     {

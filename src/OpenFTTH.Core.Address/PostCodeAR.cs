@@ -1,4 +1,4 @@
-using FluentResults;
+using OpenFTTH.Results;
 using OpenFTTH.Core.Address.Events;
 using OpenFTTH.EventSourcing;
 

@@ -1,4 +1,4 @@
-using FluentResults;
+using OpenFTTH.Results;
 using OpenFTTH.Core.Address.Events;
 using OpenFTTH.EventSourcing;
 
@@ -92,7 +92,7 @@ public class RoadAR : AggregateBase
         }
 
         var changeNameResult = ChangeName(name, externalUpdatedDate);
-        if (changeNameResult.Errors.Any())
+        if (changeNameResult.Errors.Count > 0)
         {
             var error = (RoadError)changeNameResult.Errors.First();
             if (error.Code != RoadErrorCode.NO_CHANGES)
@@ -102,7 +102,7 @@ public class RoadAR : AggregateBase
         }
 
         var changeExternalIdResult = UpdateExternalId(externalId, externalUpdatedDate);
-        if (changeExternalIdResult.Errors.Any())
+        if (changeExternalIdResult.Errors.Count > 0)
         {
             var error = (RoadError)changeExternalIdResult.Errors.First();
             if (error.Code != RoadErrorCode.NO_CHANGES)
@@ -112,7 +112,7 @@ public class RoadAR : AggregateBase
         }
 
         var changeRoadStatusResult = UpdateStatus(status, externalUpdatedDate);
-        if (changeRoadStatusResult.Errors.Any())
+        if (changeRoadStatusResult.Errors.Count > 0)
         {
             var error = (RoadError)changeRoadStatusResult.Errors.First();
             if (error.Code != RoadErrorCode.NO_CHANGES)

@@ -66,7 +66,7 @@ public class AcessAddressTests
         _eventStore = eventStore;
     }
 
-    private static IEnumerable<object[]> ExampleCreateValues()
+    public static IEnumerable<object[]> ExampleCreateValues()
     {
         yield return new object[]
         {
@@ -113,10 +113,7 @@ public class AcessAddressTests
     [MemberData(nameof(ExampleCreateValues))]
     public void Create_is_success_one(CreateAccessAddressExampleData createExampleData)
     {
-        if (createExampleData is null)
-        {
-            throw new ArgumentNullException(nameof(createExampleData));
-        }
+        ArgumentNullException.ThrowIfNull(createExampleData);
 
         var addressProjection = _eventStore.Projections.Get<AddressProjection>();
 

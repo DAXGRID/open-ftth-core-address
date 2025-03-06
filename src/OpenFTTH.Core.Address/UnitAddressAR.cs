@@ -1,4 +1,4 @@
-using FluentResults;
+using OpenFTTH.Results;
 using OpenFTTH.Core.Address.Events;
 using OpenFTTH.EventSourcing;
 
@@ -142,7 +142,7 @@ public class UnitAddressAR : AggregateBase
         }
 
         var updateExternalIdResult = UpdateExternalId(externalId, externalUpdatedDate);
-        if (updateExternalIdResult.Errors.Any())
+        if (updateExternalIdResult.Errors.Count > 0)
         {
             var error = (UnitAddressError)updateExternalIdResult.Errors.First();
             if (error.Code != UnitAddressErrorCode.NO_CHANGES)
@@ -152,7 +152,7 @@ public class UnitAddressAR : AggregateBase
         }
 
         var updateAccessAddressIdResult = UpdateAccessAddressId(accessAddressId, externalUpdatedDate);
-        if (updateAccessAddressIdResult.Errors.Any())
+        if (updateAccessAddressIdResult.Errors.Count > 0)
         {
             var error = (UnitAddressError)updateAccessAddressIdResult.Errors.First();
             if (error.Code != UnitAddressErrorCode.NO_CHANGES)
@@ -162,7 +162,7 @@ public class UnitAddressAR : AggregateBase
         }
 
         var updateStatusResult = UpdateStatus(status, externalUpdatedDate);
-        if (updateStatusResult.Errors.Any())
+        if (updateStatusResult.Errors.Count > 0)
         {
             var error = (UnitAddressError)updateStatusResult.Errors.First();
             if (error.Code != UnitAddressErrorCode.NO_CHANGES)
@@ -172,7 +172,7 @@ public class UnitAddressAR : AggregateBase
         }
 
         var updateFloorNameResult = UpdateFloorName(floorName, externalUpdatedDate);
-        if (updateFloorNameResult.Errors.Any())
+        if (updateFloorNameResult.Errors.Count > 0)
         {
             var error = (UnitAddressError)updateFloorNameResult.Errors.First();
             if (error.Code != UnitAddressErrorCode.NO_CHANGES)
@@ -182,7 +182,7 @@ public class UnitAddressAR : AggregateBase
         }
 
         var updateSuiteNameResult = UpdateSuiteName(suiteName, externalUpdatedDate);
-        if (updateSuiteNameResult.Errors.Any())
+        if (updateSuiteNameResult.Errors.Count > 0)
         {
             var error = (UnitAddressError)updateSuiteNameResult.Errors.First();
             if (error.Code != UnitAddressErrorCode.NO_CHANGES)
@@ -192,7 +192,7 @@ public class UnitAddressAR : AggregateBase
         }
 
         var updatePendingOfficialResult = UpdatePendingOfficial(pendingOfficial, externalUpdatedDate);
-        if (updatePendingOfficialResult.Errors.Any())
+        if (updatePendingOfficialResult.Errors.Count > 0)
         {
             var error = (UnitAddressError)updatePendingOfficialResult.Errors.First();
             if (error.Code != UnitAddressErrorCode.NO_CHANGES)
