@@ -1,6 +1,6 @@
-using OpenFTTH.Results;
 using OpenFTTH.Core.Address.Events;
 using OpenFTTH.EventSourcing;
+using OpenFTTH.Results;
 
 namespace OpenFTTH.Core.Address;
 
@@ -159,10 +159,10 @@ public class RoadAR : AggregateBase
 
         if (!IsExternalIdChanged(oldExternalId: ExternalId, newExternalId: externalId))
         {
-             return Result.Fail(
-                new RoadError(
-                    RoadErrorCode.NO_CHANGES,
-                    $"No changes to the {nameof(externalId)} of the road with id '{Id}'."));
+            return Result.Fail(
+               new RoadError(
+                   RoadErrorCode.NO_CHANGES,
+                   $"No changes to the {nameof(externalId)} of the road with id '{Id}'."));
         }
 
         RaiseEvent(
