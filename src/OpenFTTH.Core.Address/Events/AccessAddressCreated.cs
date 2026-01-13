@@ -17,6 +17,7 @@ public sealed record AccessAddressCreated
     public string? PlotId { get; init; }
     public Guid RoadId { get; init; }
     public bool PendingOfficial { get; init; }
+    public string? SupplementaryTownName { get; init; }
 
     public AccessAddressCreated(
         Guid id,
@@ -33,7 +34,8 @@ public sealed record AccessAddressCreated
         string? townName,
         string? plotId,
         Guid roadId,
-        bool pendingOfficial)
+        bool pendingOfficial,
+        string? supplementaryTownName)
     {
         Id = id;
         ExternalId = externalId;
@@ -50,5 +52,6 @@ public sealed record AccessAddressCreated
         PlotId = plotId;
         RoadId = roadId;
         PendingOfficial = pendingOfficial;
+        SupplementaryTownName = supplementaryTownName;
     }
 }

@@ -114,7 +114,8 @@ public class AccessAddressAR : AggregateBase
                 townName: supplementaryTownName,
                 plotId: plotId,
                 roadId: roadId,
-                pendingOfficial: pendingOfficial));
+                pendingOfficial: pendingOfficial,
+                supplementaryTownName: supplementaryTownName));
 
         return Result.Ok();
     }
