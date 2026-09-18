@@ -30,7 +30,7 @@ jobs:
           name: Push to NuGet
           command: |
             dotnet pack --output ./publish --configuration Release -p:PackageVersion=${CIRCLE_TAG}
-            dotnet nuget push --source "${NUGET_FEED_URL}" --api-key="${NUGET_KEY}" "./publish/*.nupkg"
+            dotnet nuget push --skip-duplicate --source "${NUGET_FEED_URL}" --api-key="${NUGET_KEY}" "./publish/*.nupkg"
 workflows:
   build-test-publish_nuget:
     jobs:
